@@ -1,9 +1,3 @@
-variable "environment" {
-  description = "Deployment environment (e.g., dev, staging)"
-  default = "dev"
-}
-
-
 variable "vpc_id" {
   description = "ID of the VPC"
   type = string
@@ -41,18 +35,4 @@ variable "rds_password" {
 variable "rds_allocated_storage" {
   description = "Allocated storage size for the RDS instance (in GB)"
   default = 20
-}
-
-variable "cidr_block" {
-  description = "CIDR block for the VPC"
-  default = "10.0.0.0/16"
-}
-
-variable "availability_zones" {
-  description = "List of Availability Zones for the VPC"
-  type = list(string)
-}
-
-resource "aws_vpc" "main" {
-  cidr_block = var.cidr_block
 }
